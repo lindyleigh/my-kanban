@@ -1,0 +1,90 @@
+#content {
+  background-image: url("kanban-background.jpg");
+  background-size: cover;
+  background-attachment: fixed;
+  /*margin: 20px;
+  padding-top: 40px;*/
+  width: 100%;
+  height: 650px;
+  position: relative;
+  z-index: -1;
+}
+
+#cover {
+  background-color: darkslateblue;
+  position: relative;
+  width: 100%;
+  height: 950px;
+  z-index: 1;
+}
+
+.logo {
+  color: white;
+  margin: -480px;
+  font-family: 'Merienda';
+  font-size: 20px;
+}
+
+.big-logo {
+  color: white;
+  font-family: 'Merienda';
+  position: absolute;
+  left: 0;
+  top: 30%;
+  width: 100%;
+  text-align: center;
+  font-size: 100px;
+}
+
+.arrow {
+  background: none; 
+  border: none; 
+  color: white;
+}
+
+
+.navbar-inverse {
+  background: rgba(205, 204, 204, 0.3);
+  position: fixed;
+  display: inline-block;
+}
+
+.story-board {
+    vertical-align: top;
+}
+
+
+.list {
+    display: inline-block; 
+    margin: 5px; 
+    background: rgba(205, 204, 204, 1);
+    width: 200px;
+    vertical-align: top;
+    padding: 5px;
+    font-family: 'Slabo 27px';
+    
+    
+}
+
+.task {
+  display: inline-block;
+  margin-right: 3px;
+  margin-top: 5px;
+  text-align: left;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 127, 0.3);
+  border-radius: 5%;
+  font-family: 'Slabo 27px';
+  color: black;
+  
+}
+
+button, .btn {
+    background: rgba(205, 204, 204, 0.3);
+    font-weight: bold;
+    margin: 5px;
+    padding: 5px;
+    color: white;
+    font-family: 'Merienda';
+}

@@ -1,0 +1,7 @@
+<div>
+        <h5 style="margin-left: 5px" >{{ic.taskObj.name}}</h5>
+        <div class="actions">        
+          <button style="font-size: 10px; color: black" class='btn' ng-click="ic.moveTask(ic.taskObj, ic.targetListId)">Move To</button>
+          <select style="color: black" ng-model="ic.targetListId" ng-options="list.id as list.name for list in ic.lists"></select>
+        </div>
+      </div> 

@@ -1,0 +1,15 @@
+<div>
+          <h2 style="margin-top: 2px">{{lc.listObj.name}}</h2> 
+          <button style="font-size: 10px; background-color: none; border: none; color: black" ng-click="lc.addingTask = !lc.addingTask">Add Task...</button>
+          <div ng-if="lc.addingTask">
+            <form ng-submit="lc.addTask(lc.newTask)">
+            <input style="color: black; line-height: 60%" ng-model="lc.newTask.name"/>
+            <button style="color:black" type="submit">+</button>
+            </form>
+          </div>
+          <div class="task" ng-repeat="task in lc.listObj.tasks">
+            <button style="font-size: 10px; background: none; border: none; color: black" ng-click="lc.removeTask(task)">x</button>
+            <item-component task-obj="task"></item-component>
+          </div>
+
+</div>
