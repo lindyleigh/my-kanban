@@ -1,72 +1,82 @@
-(function() {
-  
+(function () {
+
   angular.module('kanban')
-    .service('EsService', function(){
+    .service('EsService', function ($rootScope) {
 
       var lists = {
 
       };
 
-      var i = 500;
-      function assignId(){
-        i++;
-        return i;
+      function s4() {
+        return Math.floor((1 + Math.random()) * 0x10000)
+          .toString(16)
+          .substring(1);
       }
 
-      this.getLists = function(){
-        return lists;
+      function assignId() {
+        return s4() + s4() + '-' + s4() + '-' + s4() + '-' +
+          s4() + '-' + s4() + s4() + s4();
       }
 
-      this.createList = function(list){
+      this.getLists = function () {
+        return getLists();
+      }
+
+      this.createList = function (list) {
         list.id = assignId();
-        list.tasks = [];
+        list.tasks = {};
         lists[list.id] = list;
+        saveLists()
       }
 
-      this.removeList = function(listId){
-        if(!lists[listId]){
+      this.removeList = function (listId) {
+        if (!lists[listId]) {
           console.error('SoRRY BAD ID, you are lame and I don\'t like you.')
         }
         delete lists[listId]
+        saveLists()
       }
 
-      this.createTask = function(listId, task){
-        if(!lists[listId]){
+      this.createTask = function (listId, task) {
+        if (!lists[listId]) {
           console.error('SoRRY BAD ID, you are lame and I don\'t like you.')
         }
+        task.id = assignId();
         task.listId = listId;
-        lists[listId].tasks.push(task);
+        lists[listId].tasks[task.id] = task;
+        saveLists()
       }
 
-      this.removeTask = function(listId, task){
-        if(!lists[listId]){
+      this.removeTask = function (listId, task) {
+        if (!lists[listId]) {
           console.error('SoRRY BAD ID, you are lame and I don\'t like you.')
         }
-        var i = lists[listId].tasks.indexOf(task);
-        lists[listId].tasks.splice(i, 1);
+        delete lists[listId].tasks[task.id];
+        saveLists()
       }
 
-      this.moveTask = function(currentListId, targetListId, task) {
-
-        var i = lists[currentListId].tasks.indexOf(task);
-        lists[currentListId].tasks.splice(i, 1)
+      this.moveTask = function (currentListId, targetListId, task) {
+        var temp = task;
+        delete lists[currentListId].tasks[task.id]
         task.listId = targetListId
-        lists[targetListId].tasks.push(task)
+        lists[targetListId].tasks[task.id] = task
+        saveLists()
       }
 
-       function saveLists(lists){
+      function saveLists() {
         localStorage.setItem('lists', JSON.stringify(lists));
+        $rootScope.$broadcast('change')
       }
 
-      function getLists(){
-        var lists = localStorage.getItem('lists');
-        if(lists){
-          lists = JSON.parse(lists);
+      function getLists() {
+        var x = localStorage.getItem('lists');
+        if (x) {
+          lists = JSON.parse(x);
         }
-        return JSON.parse(lists);
+        return lists;
       }
 
 
     })
 
-}())
+} ())

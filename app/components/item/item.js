@@ -10,12 +10,17 @@
       }
     })
 
-    ItemController.$inject = ['EsService'];
+    ItemController.$inject = ['$rootScope','EsService'];
 
-    function ItemController(EsService) {
+    function ItemController($rootScope, EsService) {
       var ic = this;
 
       ic.lists = EsService.getLists()
+
+      $rootScope.$on('change', function(){
+        ic.lists = EsService.getLists()
+      })
+
       ic.moveTask = function(task, targetListId) {
         EsService.moveTask(task.listId, targetListId, task);
       }

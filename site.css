@@ -2,12 +2,9 @@
   background-image: url("kanban-background.jpg");
   background-size: cover;
   background-attachment: fixed;
-  /*margin: 20px;
-  padding-top: 40px;*/
   width: 100%;
-  height: 650px;
+  min-height: 810px;
   position: relative;
-  z-index: -1;
 }
 
 #cover {
@@ -15,12 +12,10 @@
   position: relative;
   width: 100%;
   height: 950px;
-  z-index: 1;
 }
 
 .logo {
   color: white;
-  margin: -480px;
   font-family: 'Merienda';
   font-size: 20px;
 }
@@ -34,6 +29,10 @@
   width: 100%;
   text-align: center;
   font-size: 100px;
+}
+
+.big-logo h1 {
+  font-size: 90%;
 }
 
 .arrow {
@@ -56,7 +55,7 @@
 
 .list {
     display: inline-block; 
-    margin: 5px; 
+    margin-top: 5%; 
     background: rgba(205, 204, 204, 1);
     width: 200px;
     vertical-align: top;

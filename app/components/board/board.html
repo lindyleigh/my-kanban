@@ -1,33 +1,28 @@
-     <div>
-    <nav class="navbar navbar-inverse navbar-fixed-top">
-    <div class="container">
-      <a class="navbar-brand">
-				<span class="logo"><i class="fa fa-trello"></i> My Kanban</span>
-			</a>
-    </div>
-    </nav>
-    </div>
-    
-    <div id="cover">
-    <div class="big-logo"><i class="fa fa-trello"></i>
-      <span> My Kanban</span>
-      <br>
-    <button class="arrow" ng-click="bc.scrollTo('content')" du-smooth-scroll><i class="fa fa-angle-double-down fa-sm animated flash infinite" aria-hidden="true"></i></button>
-    </div>
-    </div>
-    
-    <div class="story-board" id="content">
-          <button ng-click="bc.addingList = !bc.addingList">Add List</button>
-          <div ng-if="bc.addingList">
-            <form ng-submit="bc.addList(bc.newList)">
-            <input style="margin-left: 5px" ng-model="bc.newList.name"/>
-            <button type="submit">+</button>
-            </form>
-          </div>
-          <div class="list" ng-repeat="list in bc.lists">
-            <button style="font-size: 10px; background: none; border: none; color: black" ng-click="bc.removeList(list)">x</button>
-            <list-component list-obj="list"></list-component>  
-          </div>
-        </div>
+<div>
+  <nav class="navbar navbar-inverse navbar-fixed-top">
+    <a class="navbar-brand">
+      <span class="logo"><i class="fa fa-trello"></i> My Kanban</span>
+    </a>
+  </nav>
+</div>
 
-        
+<div id="cover">
+  <div class="big-logo"><h1><i class="fa fa-trello"></i>
+    <span> My Kanban</span></h1>
+    <button class="arrow" ng-click="bc.scrollTo('content')" du-smooth-scroll><i class="fa fa-angle-double-down fa-sm animated flash infinite" aria-hidden="true"></i></button>
+  </div>
+</div>
+
+<div class="story-board" id="content">
+  <button ng-click="bc.addingList = !bc.addingList">Add List</button>
+  <div ng-show="bc.addingList">
+    <form ng-submit="bc.addList(bc.newList)">
+      <input style="margin-left: 5px" ng-model="bc.newList.name" />
+      <button type="submit">+</button>
+    </form>
+  </div>
+  <div class="list" ng-repeat="list in bc.lists">
+    <button style="font-size: 10px; background: none; border: none; color: black" ng-click="bc.removeList(list)">x</button>
+    <list-component list-obj="list"></list-component>
+  </div>
+</div>
