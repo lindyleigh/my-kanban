@@ -50,19 +50,23 @@
 
 .story-board {
     vertical-align: top;
+    padding-top: 1%;
 }
 
 
 .list {
     display: inline-block; 
-    margin-top: 5%; 
+    margin: 1%; 
     background: rgba(205, 204, 204, 1);
     width: 200px;
     vertical-align: top;
     padding: 5px;
     font-family: 'Slabo 27px';
-    
-    
+}
+
+.list-form {
+  margin-left: 0.8%;
+  margin-top: -1%;
 }
 
 .task {
@@ -82,7 +86,7 @@
 button, .btn {
     background: rgba(205, 204, 204, 0.3);
     font-weight: bold;
-    margin: 5px;
+    margin: 1%;
     padding: 5px;
     color: white;
     font-family: 'Merienda';

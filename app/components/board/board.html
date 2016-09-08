@@ -16,13 +16,17 @@
 <div class="story-board" id="content">
   <button ng-click="bc.addingList = !bc.addingList">Add List</button>
   <div ng-show="bc.addingList">
-    <form ng-submit="bc.addList(bc.newList)">
+    <form class="list-form" ng-submit="bc.addList(bc.newList)">
       <input style="margin-left: 5px" ng-model="bc.newList.name" />
       <button type="submit">+</button>
     </form>
   </div>
-  <div class="list" ng-repeat="list in bc.lists">
-    <button style="font-size: 10px; background: none; border: none; color: black" ng-click="bc.removeList(list)">x</button>
-    <list-component list-obj="list"></list-component>
+  <div class="container">
+    <div class="col-md-12 col-sm-12">
+      <div class="list" ng-repeat="list in bc.lists">
+        <button class="list-btn" style="font-size: 10px; background: none; border: none; color: black" ng-click="bc.removeList(list)">x</button>
+        <list-component list-obj="list"></list-component>
+      </div>
+    </div>
   </div>
 </div>
